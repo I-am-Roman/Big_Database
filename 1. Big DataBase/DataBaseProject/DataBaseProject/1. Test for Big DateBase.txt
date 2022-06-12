@@ -1,0 +1,248 @@
+
+/*******************************************/
+	   П О Л Н Ы Й    Т Е С Т
+/*******************************************/
+Проверяется сначала Add, Find, потом Del, потом Last. 
+/*******************************************/
+	   	A D D
+/*******************************************/
+Нужна база данных: 
+1) С несколькими событиями 
+2) с одним событием
+3) С несколькими событиями, которые были были добавлены по одному
+4) Несколько строчные и одно строчные 
+/*******************************************/
+Как тестировать Find на корректность:
+/*******************************************/
+	   	F I N D
+/*******************************************/
+1) Поиск одного события 	(==, !=)
+2) Поиск двух событий c AND 	(==, !=)
+3) Поиск двух событий с OR	(==, !=)
+4) Поиск трёх событий с AND	(==, !=)
+---------------------------
+5) Поиск даты 		(==, !=, >= , <=, >, <)
+6) Поиск двух дат с AND (==, !=, >= , <=, >, <)
+6) Поиск двух дат с OR 	(==, >= , <=, >, <)
+---------------------------
+7) Поиск события (==, !=) AND даты 	(==, !=, >= , <=, >, <)
+8) Поиск даты 	(==, !=, >= , <=, >, <) AND события (==, !=)
+9) Поиск двух событий AND даты
+10) Поиск двух дат AND события 
+/*******************************************/ 
+		F I N D
+/*******************************************/   
+Add_SE 2025 02 02 Glad Hrom С
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+Add 2010 02 01 Picture_Show
+Add 2010 02 01 Imagine_Show
+Print
+Find event == Glad
+Find event != Kot 
+Find event == Glad AND event == Rels
+Find event != Glad AND event != Picture_Show
+Find event == Glad OR event == Sport
+Find event == Glad AND event == Rels AND event == River 
+Find event != Glad AND event != Picture_Show AND event != River
+
+Find date == 2020 02 02 
+Find date != 2021 02 02 
+Find date > 2010 02 01 
+Find date < 2040 02 01 
+Find date <= 2020 02 02 
+Find date >= 2025 02 02  
+Find date == 2020 02 02 AND date == 2020 02 02 
+Find date < 2020 02 02 AND date > 2020 02 02
+Find date <= 2022 02 02 AND date >= 2022 02 02
+Find date != 2020 02 02 AND date < 2023 02 02
+
+Find event == Glad AND date == 2020 02 02 
+Find event != Glad AND date == 2025 02 02 
+Find event == Holopenia AND date > 2020 02 02 
+Find event != Holopenia AND date < 2025 02 02 
+Find event == I'm glad OR date < 2019 02 02 
+Find event != Hrom  OR date <= 2017 02 02 
+Find date <= 2017 02 02 OR event != Hrom
+Find event == Glad AND event == Rels AND date < 2022 04 04 
+Find event != Glad AND event != Picture_Show AND date > 2010 01 01
+Find date < 2021 02 02 AND date > 2009 02 02 AND event == Hrom
+/*******************************************/
+Как тестировать Del на корректность:
+/*******************************************/
+	   	D E L
+/*******************************************/
+1) Удаление одного события 	(==, !=)
+2) Удаление двух событий c AND 	(==, !=)
+3) Удаление двух событий с OR	(==, !=)
+4) Удаление трёх событий с AND	(==, !=)
+---------------------------
+5) Удаление даты 		(==, !=, >= , <=, >, <)
+6) Удаление двух дат с AND (==, !=, >= , <=, >, <)
+6) Удаление двух дат с OR 	(==, >= , <=, >, <)
+---------------------------
+7) Удаление события (==, !=) AND даты (==, !=, >= , <=, >, <)
+8) Удаление даты (==, !=, >= , <=, >, <) AND события (==, !=)
+9) Удаление двух событий AND даты
+10) Удаление двух дат AND события 
+11) Удаление все базы данной 
+12) Удаление события, которого нет	(==, !=)
+13) Удаление даты которой нет 		(==, !=, >= , <=, >, <)
+/*******************************************/
+	   	D E L
+/*******************************************/
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+Add 2010 02 01 Picture_Show
+Add 2010 02 01 Imagine_Show
+
+Del event == Glad
+Add_SE 2021 02 02 Glad Hrom Kot 
+Del event != Kot
+ 
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+Add 2010 02 01 Picture_Show
+Add 2010 02 01 Imagine_Show
+
+Del event == Glad AND event == Rels
+Del event != Glad AND event != Picture_Show
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+Del event == Glad OR event == Sport
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Del event == Glad AND event == Rels AND event == River
+Del event != Glad AND event != Picture_Show AND event != River
+
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+
+Del date == 2020 02 02 
+Del date != 2021 02 02 
+Del date > 2010 02 01 
+
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+
+Del date < 2040 02 01 
+
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+
+Del date <= 2020 02 02 
+Del date >= 2025 02 02  
+Del date == 2020 02 02 AND date == 2020 02 02 
+Del date < 2020 02 02 AND date > 2020 02 02
+Del date <= 2022 02 02 AND date >= 2022 02 02
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Del date != 2020 02 02 AND date < 2023 02 02
+
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+
+Del event == Glad AND date == 2020 02 02 
+Del event != Glad AND date == 2025 02 02 
+Del event == Holopenia AND date > 2020 02 02 
+Del event != Holopenia AND date < 2025 02 02 
+
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+
+Del event == I'm glad OR date < 2019 02 02 
+Del event != Hrom  OR date <= 2017 02 02 
+Del date <= 2017 02 02 OR event != Hrom
+Del event == Glad AND event == Rels AND date < 2022 04 04 
+
+Add_SE 2020 02 02 Picture_Show Imagine_Show
+
+Del event != Glad AND event != Picture_Show AND date > 2010 01 01
+Del date < 2021 02 02 AND date > 2009 02 02 AND event == Hrom
+Del event == Gradus
+Del event != Gradus
+Del
+/*******************************************/
+Как тестировать Last на корректность:
+/*******************************************/
+	   	L A S T 
+/*******************************************/
+1) Последний, который произошёл перед самой ранней датой 
+2) Последний, который произошёл после самой поздней датой 
+2) Последний, который произошёл после самой средней датой 
+
+/*******************************************/
+	   	D E L
+/*******************************************/
+Add_SE 2025 02 02 Glad Hrom 
+Add 2023 02 02 I'm glad 
+Add 2023 02 02 because I have you
+Add_SE 2022 02 02 Glad Hrom Holopenia
+Add_SE 2021 02 02 Glad Hrom Kot 
+Add_SE 2020 02 02 Glad Hrom Kot Rels
+Add 2019 03 01 Happy Birthday
+Add 2019 04 01 Sport
+Add 2010 02 01 Picture_Show
+Add 2010 02 01 Imagine_Show
+
+Last 0 02 02 
+Last 2000 02 02 
+Last 2010 02 01 
+
+Last 2040 02 02 
+Last 2030 02 02 
+Last 2025 02 02 
+
+Last 2022 02 02
+Last 2022 02 03 
+Last 2022 02 01 
+
+
+
+
+
