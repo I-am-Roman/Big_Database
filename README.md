@@ -41,3 +41,5 @@ Database on C++
   2020 02 02 Glad Hrom Kot Rels
   
   Программа не поддерживает условия со скобками "()".
+  
+  Внутри папки DataBaseProject есть 1. Test for Big DateBase с тестами для программы.
